@@ -1,0 +1,12 @@
+﻿@model IEnumerable<TbCategory>
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Menu</a>
+    <div class="dropdown-menu" aria-labelledby="dropdown-a">
+        @foreach (var item in Model)
+        {
+            <a class="dropdown-item" asp-controller="Home" asp-action="ProductsByCategory" asp-route-categorySlug="@item.CategorySlug"  >@item.CategoryName</a>
+            
+        }
+    </div>
+</li>

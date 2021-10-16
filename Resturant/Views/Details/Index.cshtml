@@ -1,0 +1,206 @@
+﻿@model DetailsViewModel
+<!-- Basic -->
+
+
+<body>
+
+    <!-- Start All Pages -->
+    <div class="all-page-title page-breadcrumb">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Food Details</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Pages -->
+    <!-- Start blog details -->
+    <div class="blog-box">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-xl-8 col-lg-8 col-8">
+                    <div class="blog-inner-details-page">
+                        @foreach (var item in Model.Product.FProductImage)
+                        {
+
+                            <div class="col-md-8 col-sm-8">
+
+                                <a asp-controller="Details" asp-action="Index" asp-route-id="@Model.Product.TbProductId">
+                                    <div class="our-team">
+                                        <div class="pic">
+
+                                            <img src="@string.Format("/Uploads/{0}", Model.Product.ProductImage)">
+                                            <ul class="social">
+
+
+                                                <li><a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.Product.TbProductId" class="fa fa-shopping-cart"></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="team-content">
+                                            <h3 class="title">@Model.Product.ProductName</h3>
+                                            <span class="post">$@Model.Product.ProductPrice</span>
+                                            
+                                            <h4> <span class="title">DESCRIPTION</span>:@Model.Product.ProductDescription.</h4>
+                                        </div>
+                                        
+                                    </div>
+                                </a>
+
+                            </div>
+                         
+
+                        }
+
+
+
+                    </div>
+                    <div class="comment-respond-box">
+
+                        <a href="#" class="btn btn-warning">LEAVE REVIEW</a>
+                        <br />
+                        <br />
+                        <div class="comment-respond-form">
+                            <form id="commentrespondform" class="comment-form-respond row" asp-controller="Reviews" asp-action="SaveReview" method="post" role="form">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+
+                                        <input class="form-control" asp-for="FirstName" placeholder="Write your Name" type="text" required="">
+                                    </div>
+                                    @*<div class="form-group">
+                                            <label for="review">Topic Name</label>
+                                            <input class="form-control" asp-for="TopicName" placeholder="Name" type="text" required="">
+                                        </div>*@
+                                    <div class="form-group">
+                                        <label for="review">Topic Name</label>
+                                        <input class="form-control" asp-for="TopicName" placeholder="Ex: @Model.Product.ProductName" type="text" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="review">Product Id</label>
+                                        <input class="form-control" name="ProductId" placeholder="Write: @Model.Product.TbProductId" type="text" required="">
+                                    </div>
+
+                                    <label for="review">Date</label>
+                                    <input type="date" class="form-control" asp-for="ReviewDate"
+                                           required="">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <textarea class="form-control" asp-for="Message" placeholder="Your Review" rows="2" required=""></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <button class="btn btn-success">Submit Review</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="blog-comment-box">
+                        <h3>CUSTOMERS FEEDBACK </h3>
+
+                        @foreach (var item in Model.ListReviews.Where(a => a.ProductId == Model.Product.TbProductId))
+                        {
+                            <div class="comment-item">
+                                <div class="comment-item-left">
+                                    <img src="~/images/avt-img.jpg" alt="">
+                                </div>
+                                <div class="comment-item-right">
+                                    <div class="pull-left">
+                                        <a style="color:orangered">Name: @item.FirstName </a>
+                                        <span style="color:red">||</span>
+                                        <a style="color:orange">Topic: @item.TopicName</a>
+                                        <span style="color:red">||</span>
+                                    </div>
+                                    
+                                    <div class="pull-right">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>Date : <span style="color:green">@item.ReviewDate</span>
+                                    </div>
+                                    <div class="des-l">
+                                        <p>@item.Message .</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <br />
+                            <hr />
+                        }
+
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-4 ">
+                    <div class="right-side-blog">
+                        <a class="btn btn-warning" href="#">RELATED PRODUCTS</a>
+                        <br />
+                        <br />
+
+                        <div class="post-box-blog">
+                            @foreach (var item in Model.RelatedProducts)
+                            {
+
+                                <div class="col-md-12 col-sm-12">
+
+                                    <a asp-controller="Details" asp-action="Index" asp-route-id="@item.TbProductId">
+                                        <div class="our-team">
+                                            <div class="pic">
+
+                                                <img src="@string.Format("/Uploads/{0}",item.ProductImage)">
+                                                <ul class="social">
+
+                                                   
+
+                                                    <li><a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@item.TbProductId" class="fa fa-shopping-cart"></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="team-content">
+                                                <h3 class="title">@item.ProductName</h3>
+                                                <span class="post">$@item.ProductPrice</span>
+                                                
+                                                @*<h3> <span style="color:orangered">DESCRIPTION</span>:@item.ProductDescription.</h3>*@
+                                                
+
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                </div>
+                                @*<a asp-controller="Details" asp-action="Index" asp-route-id="@item.TbProductId">
+                <div class="recent-post-box">
+
+                    <div class="recent-box-blog">
+
+                        <div class="recent-img">
+                            <img class="img-fluid" src="@string.Format("/Uploads/{0}",item.ProductImage)" alt="">
+
+                        </div>
+
+                        <div class="recent-info">
+                            <ul>
+                                <li style="color:red"><i class="zmdi zmdi-account"></i> <h2>Name : <span style="color:orange">@item.ProductName</span></h2></li>
+                                <li style="color:red"> <h3>|</h3></li>
+                                <li style="color:red"><i class="zmdi zmdi-time"></i><h2> Price : <span style="color:orange">$@item.ProductPrice</span></h2></li>
+                            </ul>
+                            <h3 style="color:gray">@item.ProductDescription.</h3>
+                        </div>
+                    </div>
+
+                </div>
+            </a>
+            <a class="btn btn-submit" asp-controller="Cart" asp-action="Add To Cart" asp-route-id="@item.TbProductId">Order Now</a>
+            <hr />
+            <hr />*@
+                            }
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End details -->
+
+</body>

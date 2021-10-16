@@ -1,0 +1,340 @@
+﻿@model HomePageViewModel
+<div id="slides" class="cover-slides">
+
+    <ul class="slides-container">
+        @foreach (var item in Model.ListSlider)
+        {
+            <li class="text-left">
+
+
+
+                <img src="@string.Format("/Slider/{0}", item.SliderImage)" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Welcome <br> @item.SliderTitle</strong></h1>
+                            <p class="m-b-40">
+                                @item.SliderDescription
+                            </p>
+                            <p><a class="btn btn-lg btn-circle btn-outline-new-white" href="/Reservation/Reserve">Reservation</a></p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </li>
+        }
+
+
+    </ul>
+
+    <div class="slides-navigation">
+        <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+        <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+    </div>
+
+</div>
+
+<div class="about-section-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 text-center">
+                <div class="inner-column">
+                    <h1>Welcome To <span>Naruto Restaurant</span></h1>
+                    <h4>Little Story</h4>
+                    <p>Many years ago, Nagato attacked the village so Naruto decided to defend Konoha with his friends such as Shikamaro,sakura and his idol itachi </p>
+                    <p>Nagato attacked them with shinra-tensi and the restaurant was destroyed but Sasuke got back and helped to build it again and they bet Nagato </p>
+                    <a class="btn btn-lg btn-circle btn-outline-new-white" href="/Reservation/Reserve">Reservation</a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <img src="~/images/about-img.jpg" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="qt-box qt-background">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-center">
+                <p class="lead ">
+                    " If you're not the one cooking, stay out of the way and compliment the chef. "
+                </p>
+                <span class="lead">Michael Strahan</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Start Menu -->
+<div class="menu-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading-title text-center">
+                    <h2>Top Menu</h2>
+                    <p>We picked most bought and highly viewed foods to make it easy to choose</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row inner-menu-box">
+            <div class="col-3">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">TOP RATED</a>
+                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">FREQUENTLY TAKEN</a>
+                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">RECOMMENDED</a>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <div class="tab-content" id="v-pills-tabContent">
+
+                    <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                        <div class="row">
+                            @foreach (var item in Model.ListAllProducts.Take(9))
+                            {
+                                <div class="col-md-4 col-sm-6">
+
+                                    <a asp-controller="Details" asp-action="Index" asp-route-id="@item.TbProductId">
+                                        <div class="our-team">
+                                            <div class="pic">
+
+                                                <img src="@string.Format("/Uploads/{0}", item.ProductImage)">
+                                                <ul class="social">
+
+
+                                                    <li><a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@item.TbProductId" class="fa fa-shopping-cart"></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="team-content">
+                                                <h3 class="title">@item.ProductName</h3>
+                                                <span class="post">$@item.ProductPrice</span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                </div>
+
+
+
+
+                               
+
+                            }
+
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                        <div class="row">
+                            @foreach (var item in Model.ListAllProducts.Skip(9).Take(9))
+                            {
+                                <div class="col-md-4 col-sm-6">
+
+                                    <a asp-controller="Details" asp-action="Index" asp-route-id="@item.TbProductId">
+                                        <div class="our-team">
+                                            <div class="pic">
+
+                                                <img src="@string.Format("/Uploads/{0}", item.ProductImage)">
+                                                <ul class="social">
+
+
+                                                    <li><a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@item.TbProductId" class="fa fa-shopping-cart"></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="team-content">
+                                                <h3 class="title">@item.ProductName</h3>
+                                                <span class="post">$@item.ProductPrice</span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                </div>
+
+                            }
+
+
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                        <div class="row">
+                            @foreach (var item in Model.ListAllProducts.Skip(18).Take(9))
+                            {
+                                <div class="col-md-4 col-sm-6">
+
+                                    <a asp-controller="Details" asp-action="Index" asp-route-id="@item.TbProductId">
+                                        <div class="our-team">
+                                            <div class="pic">
+
+                                                <img src="@string.Format("/Uploads/{0}", item.ProductImage)">
+                                                <ul class="social">
+
+
+                                                    <li><a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@item.TbProductId" class="fa fa-shopping-cart"></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="team-content">
+                                                <h3 class="title">@item.ProductName</h3>
+                                                <span class="post">$@item.ProductPrice</span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                </div>
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- End Menu -->
+
+
+
+<div class="gallery-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading-title text-center">
+                    <h2>Gallery</h2>
+                    <p>Our Most beautiful photos taken by:AHMED MEGAHED</p>
+                </div>
+            </div>
+        </div>
+        <div class="tz-gallery">
+            <div class="row">
+                @foreach (var item in Model.ListGallery)
+                {
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <a class="lightbox" href="@string.Format("/Gallery/{0}",item.GalleryImage)">
+                            <img class="img-fluid" src="@string.Format("/Gallery/{0}",item.GalleryImage)" alt="Gallery Images">
+                        </a>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="customer-reviews-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading-title text-center">
+                    <h2>Customer Reviews</h2>
+                    <p>take a look at the reviews to know our crediability and why we are number 1</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+
+            <div class="col-md-8 mr-auto ml-auto text-center">
+
+                <div id="reviews" class="carousel slide" data-ride="carousel">
+
+                    <div class="carousel-inner mt-4">
+
+                        @foreach (var item in Model.ListReviews.Take(1))
+                        {
+
+
+                            <div class="carousel-item text-center active">
+
+
+                                <div class="img-box p-1 border rounded-circle m-auto">
+                                    <img class="d-block w-100 rounded-circle" src="~/images/avt-img.jpg" alt="">
+                                </div>
+                                <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">@item.FirstName @item.LastName</strong></h5>
+                                <h6 class="text-dark m-0">@item.TopicName</h6>
+                                <p class="m-0 pt-3">@item.Message</p>
+
+                            </div>
+
+                        }
+                        @foreach (var item in Model.ListReviews.Skip(1).Take(10))
+                        {
+
+
+                            <div class="carousel-item text-center ">
+
+
+                                <div class="img-box p-1 border rounded-circle m-auto">
+                                    <img class="d-block w-100 rounded-circle" src="~/images/avt-img.jpg" alt="">
+                                </div>
+                                <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">@item.FirstName @item.LastName</strong></h5>
+                                <h6 class="text-dark m-0">@item.TopicName</h6>
+                                <p class="m-0 pt-3">@item.Message</p>
+
+                            </div>
+
+                        }
+
+                    </div>
+
+                    <a class="carousel-control-prev" href="#reviews" role="button" data-slide="prev">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#reviews" role="button" data-slide="next">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        <span class="sr-only">Next</span>
+                    </a>
+
+
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="contact-imfo-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 arrow-right">
+                <i class="fa fa-volume-control-phone"></i>
+                <div class="overflow-hidden">
+                    <h4>Phone</h4>
+                    <p class="lead">
+                        +90546894031
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 arrow-right">
+                <i class="fa fa-envelope"></i>
+                <div class="overflow-hidden">
+                    <h4>Email</h4>
+                    <p class="lead">
+                        ahmedmegahed307@gmail.com
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <i class="fa fa-map-marker"></i>
+                <div class="overflow-hidden">
+                    <h4>Location</h4>
+                    <p class="lead">
+                        AVCILAR,ISTANBUL,TURKEY
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

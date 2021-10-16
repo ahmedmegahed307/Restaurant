@@ -1,0 +1,52 @@
+﻿@model List<TbStuff>
+<!-- Basic -->
+
+<body>
+  
+    <!-- Start All Pages -->
+    <div class="all-page-title page-breadcrumb">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Stuff</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Pages -->
+    <!-- Start Stuff -->
+    <div class="stuff-box">
+        <div class="container">
+           
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 col-sm-6">
+
+                        <div class="our-team">
+                            <div class="pic">
+                                <img src="@string.Format("/images/{0}", item.StuffImage)">
+                                <ul class="social">
+                                    <li><a href="https://www.facebook.com/profile.php?id=100007199411850" class="fa fa-facebook"></a></li>
+                                    <li><a href="https://ahmedmegahed307@gmail.com" class="fa fa-google-plus"></a></li>
+                                    <li><a href="https://github.com/ahmedmegahed307" class="fa fa-instagram"></a></li>
+                                    <li><a href="https://www.linkedin.com/in/ahmed-megahed-b0b96821b/" class="fa fa-linkedin"></a></li>
+                                </ul>
+                            </div>
+                            <div class="team-content">
+                                <h3 class="title">@item.StuffName</h3>
+                                <span class="post">@item.Title</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                }
+
+                </div>
+        </div>
+    </div>
+    <!-- End Stuff -->
+    
+
+    
+</body>

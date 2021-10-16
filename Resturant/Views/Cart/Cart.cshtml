@@ -1,0 +1,78 @@
+﻿@model ShopingCart
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<div class="all-page-title page-breadcrumb">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Shopping Cart</h1>
+            </div>
+        </div>
+    </div>
+</div>
+@if (Model.ListItems.Count > 0)
+{
+    <div class="cartWrapper">
+        <div class="cartbg d-none">
+            <h3 class="text-center">Redirecting you to paypal...</h3>
+            <img src="~/images/ajax-loader.gif" />
+        </div>
+        <table class="table">
+            <tr>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+            @foreach (var item in Model.ListItems)
+            {
+
+                <tr>
+                    <td>
+                        <a><img src="@string.Format("/Uploads/{0}", item.ImageName)" style="width:120px;height:100px" alt=""></a>
+                    </td>
+                    <td>@item.ItemName</td>
+                    <td>@item.Qty</td>
+                    <td>
+                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@item.ItemId" class="btn btn-sm btn-primary">+</a>
+                        <a asp-controller="Cart" asp-action="Decrease" asp-route-id="@item.ItemId" class="btn btn-sm btn-success">-</a>
+                        <a asp-controller="Cart" asp-action="RemoveItem" asp-route-id="@item.ItemId" class="btn btn-sm btn-danger">Remove</a>
+                    </td>
+                    <td>$@item.Price</td>
+                    <td>$@Model.ListItems.Where(x => x.ItemId == item.ItemId).Sum(x => x.Qty * x.Price)</td>
+                </tr>
+            }
+
+
+            <tr>
+                <td class="text-right" colspan="4"> <h3> Total: $@Model.Total</h3></td>
+            </tr>
+            <tr>
+                <td class="text-right" colspan="4">
+                    <a asp-action="Clear" class="btn btn-danger">Clear Cart</a>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                <a asp-controller="Cart" asp-action="CheckOut" class="btn btn-primary checkout">Check out</a>
+                    }
+                    else
+                    {
+                        <a href="/Identity/Account/Login" class="btn btn-primary checkout">Check out</a>
+
+                    }
+
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+
+else
+{
+    <h3 class="display-4 text-center">Your cart is empty.</h3>
+}
+
+
