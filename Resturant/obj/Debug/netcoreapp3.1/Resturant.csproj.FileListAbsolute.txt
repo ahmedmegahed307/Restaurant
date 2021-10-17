@@ -382,7 +382,6 @@ C:\Users\dell\source\repos\Resturant\Resturant\obj\Debug\netcoreapp3.1\Resturant
 C:\Users\dell\source\repos\Resturant\Resturant\obj\Debug\netcoreapp3.1\Resturant.genruntimeconfig.cache
 C:\Users\dell\source\repos\Resturant\Resturant\obj\Debug\netcoreapp3.1\Razor\Areas\_ViewImports.cshtml.g.cs
 C:\Users\dell\source\repos\Resturant\Resturant\obj\Debug\netcoreapp3.1\Razor\Areas\_ViewStart.cshtml.g.cs
-C:\Users\dell\source\repos\Resturant\Resturant\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\dell\source\repos\Resturant\Resturant\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\dell\source\repos\Resturant\Resturant\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.dll
 C:\Users\dell\source\repos\Resturant\Resturant\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
@@ -465,3 +464,4 @@ C:\Users\dell\source\repos\Resturant\Resturant\obj\Debug\netcoreapp3.1\Razor\Vie
 C:\Users\dell\source\repos\Resturant\Resturant\obj\Debug\netcoreapp3.1\Razor\Views\Cart\OrderSuccess.cshtml.g.cs
 C:\Users\dell\source\repos\Resturant\Resturant\obj\Debug\netcoreapp3.1\Razor\Views\Reservation\Reserve.cshtml.g.cs
 C:\Users\dell\source\repos\Resturant\Resturant\obj\Debug\netcoreapp3.1\Razor\Views\Reservation\SuccessReservation.cshtml.g.cs
+C:\Users\dell\source\repos\Resturant\Resturant\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll

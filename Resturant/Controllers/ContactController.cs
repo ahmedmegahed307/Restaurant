@@ -11,6 +11,7 @@ namespace Resturant.Controllers
 {
     public class ContactController : Controller
     {
+
         ResturantContext ctx;
         public ContactController(ResturantContext context)
         {

@@ -731,6 +731,7 @@ C:\Users\dell\source\repos\Resturant\Resturant\obj\Release\netcoreapp3.1\PubTmp\
 C:\Users\dell\source\repos\Resturant\Resturant\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\dell\source\repos\Resturant\Resturant\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\dell\source\repos\Resturant\Resturant\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\dell\source\repos\Resturant\Resturant\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\dell\source\repos\Resturant\Resturant\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\dell\source\repos\Resturant\Resturant\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\dell\source\repos\Resturant\Resturant\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.DependencyModel.dll
