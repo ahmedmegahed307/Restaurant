@@ -57,6 +57,7 @@ namespace Resturant.Areas.Admin.Controllers
                         await file.CopyToAsync(stream);
                     }
                     product.ProductImage = ImageName;
+                   
                 }
             }
             if (product.TbProductId==0)
@@ -98,6 +99,7 @@ namespace Resturant.Areas.Admin.Controllers
             {
                 return View();
             }
+            
 
         }
         public IActionResult DeletePhoto(int id)

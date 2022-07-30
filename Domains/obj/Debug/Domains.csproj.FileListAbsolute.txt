@@ -1,8 +1,0 @@
-C:\Users\dell\source\repos\Resturant\Domains\bin\Debug\Domains.dll
-C:\Users\dell\source\repos\Resturant\Domains\bin\Debug\Domains.pdb
-C:\Users\dell\source\repos\Resturant\Domains\bin\Debug\System.ComponentModel.Annotations.dll
-C:\Users\dell\source\repos\Resturant\Domains\obj\Debug\Domains.csproj.CoreCompileInputs.cache
-C:\Users\dell\source\repos\Resturant\Domains\obj\Debug\Domains.csproj.CopyComplete
-C:\Users\dell\source\repos\Resturant\Domains\obj\Debug\Domains.dll
-C:\Users\dell\source\repos\Resturant\Domains\obj\Debug\Domains.pdb
-C:\Users\dell\source\repos\Resturant\Domains\obj\Debug\Domains.csproj.AssemblyReference.cache

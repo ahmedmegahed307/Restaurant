@@ -66,11 +66,13 @@ namespace Resturant.Controllers
             if (cartItem.Qty > 1)
             {
                 --cartItem.Qty;
+                cartItem.Total = cartItem.Price * cartItem.Qty;
             }
             else
             {
                 cart.ListItems.RemoveAll(a => a.ItemId == id);
             }
+            cart.Total = cart.ListItems.Sum(a => a.Total);
 
             if (cart.ListItems.Count == 0)
             {
@@ -80,6 +82,7 @@ namespace Resturant.Controllers
             {
                 HttpContext.Session.SetObjectAsJson("Cart", cart);
             }
+
 
             return RedirectToAction("Cart");
         }
